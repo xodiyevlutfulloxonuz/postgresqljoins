@@ -1,0 +1,50 @@
+<%-include('partials/header') %> 
+
+<section class="mt-4 pt-4">
+    <div class="container">
+        <h3 class=" text-center"> Users</h1>
+    
+            <form action="/" method="POST" class="mt-4 pt-4 w-50 mx-auto ">
+                <div class="my-3">
+                    <select name="referal" class="form-select w-50 mx-auto">
+                        <% for (let element of referals) {%> 
+                         <option value="<%=element.referal_id %> "> <%=element.referal_name %> </option>
+                         <% } %> 
+                     </select>
+                </div>
+             <div>
+                <input type="text" class="form-control" name="name" placeholder="Enter Username..." required> 
+                
+             </div>
+             <div>
+                <input type="number" class="form-control my-4" name="age" placeholder="Enter Age..." required> 
+                
+             </div>
+             <div> 
+                <button class="btn btn-success mt-2">Add user</button>
+             </div>
+            </form>
+
+        <table class="table table-bordered table-striped table-hover w-50 mx-auto mt-4 ">
+         <thead>
+             <tr>
+                 <td>id</td>
+                 <td>name</td>
+                 <td>Age</td>
+                 <td> Source</td>
+             </tr>
+         </thead>
+         <tbody>
+             <% for (let element of users){ %>
+                <tr>
+                    <td><%=element.user_id %> </td>
+                    <td><%=element.user_name %> </td>
+                    <td><%=element.user_age %> </td>
+                    <td><%=element.referal_name %> </td>
+                </tr>
+                <% } %>  
+         </tbody>
+        </table>
+    </div>
+</section>
+<%-include('partials/footer') %> 
